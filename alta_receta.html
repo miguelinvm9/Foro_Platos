@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alta Receta</title>
+</head>
+<body>
+    <h2>Alta Receta</h2>
+    <form action="procesar_alta_receta.php" method="post" enctype="multipart/form-data">
+        <label for="nombre_receta">Nombre Receta:</label>
+        <input type="text" name="nombre_receta" required><br>
+
+        <label for="tiempo">Tiempo:</label>
+        <input type="text" name="tiempo" required><br>
+
+        <label for="dificultad">Dificultad:</label>
+        <!--<input type="text" name="dificultad" required><br>-->
+        <select name="dificultad" id="dificultad" class="feedback-input">
+            <option value="">DIFICULTAD</option>
+            <option value="facil">FACIL</option>
+            <option value="media">MEDIO</option>
+            <option value="compleja">COMPLEJA</option>
+        </select>
+
+        <label for="descripcion">Descripción:</label>
+        <textarea name="descripcion" required></textarea><br>
+
+        <label for="imagen">Imagen:</label>
+        <input type="file" name="imagen" accept="image/*"><br>
+
+        <label>Ingredientes:</label><br>
+        <div id="ingredientes-container">
+            <div class="ingrediente">
+                <input type="text" name="ingredientes[]" class="autocomplete" placeholder="Nombre del ingrediente" required>
+                <button type="button" onclick="eliminarIngrediente(this)">Eliminar</button>
+            </div>
+        </div>
+        <button type="button" onclick="agregarIngrediente()">Agregar Ingrediente</button>
+
+        <br>
+        <input type="submit" value="Guardar Receta">
+    </form>
+
+    <script>
+        function agregarIngrediente() {
+            const contenedor = document.getElementById('ingredientes-container');
+            const nuevoIngrediente = document.createElement('div');
+            nuevoIngrediente.innerHTML = `
+                <input type="text" name="ingredientes[]" class="autocomplete" placeholder="Nombre del ingrediente" required>
+                <button type="button" onclick="eliminarIngrediente(this)">Eliminar</button>
+            `;
+            contenedor.appendChild(nuevoIngrediente);
+
+            // Inicializar el autocompletar para el nuevo campo
+            initAutocomplete(nuevoIngrediente.querySelector('.autocomplete'));
+        }
+
+        function eliminarIngrediente(botonEliminar) {
+            const contenedor = document.getElementById('ingredientes-container');
+            contenedor.removeChild(botonEliminar.parentNode);
+        }
+
+        function initAutocomplete(input) {
+            // Configurar el autocompletar utilizando AJAX
+            input.addEventListener('input', function() {
+                const textoIngresado = input.value.trim();
+                if (textoIngresado === '') {
+                    return;
+                }
+
+                // Realizar una solicitud AJAX para buscar ingredientes en la base de datos
+                const xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        const resultados = JSON.parse(xhr.responseText);
+                        mostrarResultados(resultados, input);
+                    }
+                };
+                xhr.open('GET', 'buscar_ingredientes.php?texto=' + encodeURIComponent(textoIngresado), true);
+                xhr.send();
+            });
+        }
+
+        function mostrarResultados(resultados, input) {
+            // Crear una lista desplegable con los resultados
+            const listaResultados = document.createElement('ul');
+            listaResultados.classList.add('autocomplete-list');
+
+            resultados.forEach(function(resultado) {
+                const itemLista = document.createElement('li');
+                itemLista.textContent = resultado.nombre;
+                itemLista.addEventListener('click', function() {
+                    // Al hacer clic en un resultado, llenar el campo con ese resultado
+                    input.value = resultado.nombre;
+                    // Eliminar la lista de resultados
+                    listaResultados.parentNode.removeChild(listaResultados);
+                });
+                listaResultados.appendChild(itemLista);
+            });
+
+            // Posicionar la lista de resultados debajo del campo de entrada
+            const rect = input.getBoundingClientRect();
+            listaResultados.style.top = rect.bottom + 'px';
+            listaResultados.style.left = rect.left + 'px';
+            
+            // Eliminar la lista de resultados existente antes de agregar una nueva
+            const listaAnterior = document.querySelector('.autocomplete-list');
+            if (listaAnterior) {
+                listaAnterior.parentNode.removeChild(listaAnterior);
+            }
+
+            // Agregar la lista de resultados al documento
+            document.body.appendChild(listaResultados);
+        }
+
+        // Inicializar el autocompletar para los campos existentes
+        const camposAutocomplete = document.querySelectorAll('.autocomplete');
+        camposAutocomplete.forEach(initAutocomplete);
+    </script>
+</body>
+</html>

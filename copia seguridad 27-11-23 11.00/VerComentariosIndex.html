@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reseñas de Recetas de Cocina</title>
+    <link rel="stylesheet" type="text/css" href="VerComentarios.css">
+    <link rel="icon" sizes="64x64" href="img/descarga.jpg">
+    
+</head>
+<body>
+
+    <h1>Reseñas de Recetas de Cocina</h1>
+
+    <table>
+        <tr>
+            <th>Receta</th>
+            <th>Usuario</th>
+            <th>Reseña</th>
+        </tr>
+        <tr>
+            <td><img src="img/creps.jpg" alt="Creps"></td>
+            <td>Juanita</td>
+            <td>¡Esta receta es increíble! Me encanta la combinación de la crema y el tocino.</td>
+        </tr>
+        <tr>
+            <td>Sopa de Tomate</td>
+            <td>Luis</td>
+            <td>Una sopa deliciosa, perfecta para los días fríos.</td>
+        </tr>
+        <!-- Puedes agregar más filas según sea necesario -->
+    </table>
+
+    <div class="review-form">
+        <h2>Añadir Reseña</h2>
+        <form>
+            <label for="recipe">Receta:</label>
+            <input type="text" id="recipe" name="recipe" required>
+
+            <label for="username">Usuario:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="review">Reseña:</label>
+            <textarea id="review" name="review" rows="4" required></textarea>
+
+            <button type="button" onclick="addReview()">Añadir Reseña</button>
+        </form>
+    </div>
+
+   
+
+</body>
+</html>

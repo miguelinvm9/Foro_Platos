@@ -1,0 +1,27 @@
+body {
+    background-image: url(img/fondo_pizarra.avif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+h1{
+
+    text-align: center;
+    color: aliceblue;
+}
+div{
+    background-image: url(img/blank-sticky-note-reminder-paper-png.png);
+    background-repeat: no-repeat;
+    width:432px;
+    height: 352px;
+    border: 10px;
+    margin-left: 30px;
+    border-color: blue;
+    background-size: cover;
+}
+.table1{
+    position: absolute;
+    margin-top: 130px;
+    margin-left: 70px;
+}

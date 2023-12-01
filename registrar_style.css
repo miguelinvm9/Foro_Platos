@@ -1,0 +1,51 @@
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-image: url(img/f.elconfidencial.com_original_8d3_388_5c2_8d33885c2d7c9b44378d0384b7cbc184.jpg);
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+}
+.registration-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 300px;
+    margin: 0 auto;
+    background-color: whitesmoke;
+  }
+  
+  .form-group {
+    margin-bottom: 10px;
+    
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  input[type="text"],
+  input[type="password"],
+  select {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  

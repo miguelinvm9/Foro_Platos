@@ -1,0 +1,94 @@
+        body{
+            background-image: url(img_recetas/fondo4.jpg);
+            background-repeat: repeat;
+        }
+
+        table {
+            width: 60%;
+            border-collapse: collapse;
+            background-color: whitesmoke;
+            margin: 0 auto;
+            margin-top: 5%;
+            
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 5%;
+        }
+
+        th, td {
+            border: 2px solid ;
+            padding: 10px;
+            text-align: left;
+            
+        }
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        th {
+            background-color: #333;
+            color: #fff;
+        }
+
+        /* Estilos para imágenes */
+        img {
+            max-width: 70%;
+            height: auto;
+            width: 300px;
+        }
+
+        /* Estilos para comentarios */
+        .comment-input {
+            width: 80%;
+            padding: 5px;
+        }
+
+        header {
+            background-image: url(../img/fondo_inicio3.png);
+            width: 100%;
+            color: black;
+            text-align: center;
+            padding: 100px;
+            font-weight: bold;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+        
+        header h1 {
+            margin: 0;
+        }
+        
+        nav  {
+            background-color: gainsboro;
+            text-align: center;
+            padding: 10px;
+        }
+
+        nav ul{
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 40px;
+        }
+
+        nav ul li a  {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+        }
+
+        a:hover{
+            text-decoration: underline;
+        }
