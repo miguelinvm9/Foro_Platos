@@ -6,7 +6,7 @@ include 'usuarioModel.php';
 $nombre_usuario = $_POST['nombre_usuario'];
 $nombre = $_POST['nombre'];
 $apellidos = $_POST['apellidos'];
-$contrasena = $_POST['contrasena'];
+$contrasena = password_hash($_POST['contrasena'], PASSWORD_DEFAULT);
 $esAdmin = $_POST['esAdmin'];
 $correo = $_POST['correo'];
 $experiencia = $_POST['experiencia'];

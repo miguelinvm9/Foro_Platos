@@ -20,9 +20,10 @@ try {
     // Insertar la receta en la tabla 'receta'
     $insertar_receta = $conexion->prepare("INSERT INTO receta (id,nombre,tiempo,dificultad,texto,fecha,imagen,id_usuario) VALUES (?,?, ?, ?, ?, ?, ?, ?)");
     $insertar_receta->execute([0,$nombre_receta, $tiempo, $dificultad, $descripcion,date("Y-m-d H:i:s"), $nombre_imagen,$_SESSION['id_usuario']]);
+
     $id_receta = $conexion->lastInsertId(); // Obtener el ID de la receta recién insertada
 
-    // Insertar los ingredientes seleccionados o nuevos en la tabla 'ingredientes_receta'
+    // Insertar los ingredientes seleccionados o nuevos en la tabla 'ingredientes_receta' 
     if (!empty($ingredientes)) {
         foreach ($ingredientes as $nombre_ingrediente) {
             // Verificar si el ingrediente ya existe en la base de datos

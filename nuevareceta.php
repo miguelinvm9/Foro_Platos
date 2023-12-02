@@ -82,6 +82,8 @@ if(isset($_POST['button-blue'])){
             </form>
         </div>
     </div>
+
+
     <script>
         function agregarIngrediente() {
             const contenedor = document.getElementById('ingredientes-container');
@@ -98,5 +100,28 @@ if(isset($_POST['button-blue'])){
             contenedor.removeChild(botonEliminar.parentNode);
         }
     </script>
+
+
+
+<!--
+function agregarIngrediente() {
+  $contenedor = document.getElementById('ingredientes-container');
+  $nuevoIngrediente = document.createElement('div');
+  $nuevoIngrediente->innerHTML = '
+    <input type="text" name="ingredientes[]" placeholder="Nombre del ingrediente" required>
+    <button type="button" onclick="eliminarIngrediente(this)">Eliminar</button>
+  ';
+  $contenedor->appendChild($nuevoIngrediente);
+}
+
+function eliminarIngrediente($botonEliminar) {
+  $contenedor = document.getElementById('ingredientes-container');
+  $contenedor->removeChild($botonEliminar->parentNode);
+}
+
+?> -->
+
+
+    
 </body>
 </html>

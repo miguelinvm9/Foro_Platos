@@ -19,16 +19,16 @@ require 'conectaDatabase.php';
 
 
     // Método para actualizar la información de una receta
-    function actualizarReceta($id, $nombre, $tiempo, $dificultad, $texto, $imagen, $id_usuario) {
+    function actualizarReceta($id, $nombre, $tiempo, $dificultad, $texto, /*$imagen,*/ $id_usuario) {
         global $conexion;
-		$sql = "UPDATE receta SET nombre = :nombre, tiempo = :tiempo, dificultad = :dificultad, texto = :texto, imagen = :imagen, id_usuario = :id_usuario WHERE id = :id";
+		$sql = "UPDATE receta SET nombre = :nombre, tiempo = :tiempo, dificultad = :dificultad, texto = :texto,/* imagen = :imagen,*/ id_usuario = :id_usuario WHERE id = :id";
         $stmt = $conexion->prepare($sql);
         $stmt->bindParam(':id', $id);
         $stmt->bindParam(':nombre', $nombre);
         $stmt->bindParam(':tiempo', $tiempo);
         $stmt->bindParam(':dificultad', $dificultad);
         $stmt->bindParam(':texto', $texto);
-        $stmt->bindParam(':imagen', $imagen);
+       /* $stmt->bindParam(':imagen', $imagen);*/
         $stmt->bindParam(':id_usuario', $id_usuario);
     
         return $stmt->execute();

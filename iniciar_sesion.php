@@ -13,7 +13,7 @@ $userRow=$resultado->fetch(PDO::FETCH_ASSOC);
 $password = $userRow['contrasena'];
 $hash = crypt($contrasena,$password);
 
-if($userRow && $contrasena==$password){
+if($userRow && $hash==$password){
 	
 	session_start();
 	$_SESSION['id_usuario']=$userRow['id'];

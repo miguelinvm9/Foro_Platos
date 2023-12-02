@@ -55,11 +55,16 @@ require 'RECETA/recetaModel.php';
                     <label for="texto">Texto:</label>
                     <input type="text" id="texto" name="texto" value = "<?php echo $receta ['texto'] ; ?>" required>
                 </div>
+
+                <!--
+                    Actualizar foto
+
                 <div class="form-group">
                     <label for="imagen">Imagen:</label>
                     <input type="file" id="imagen" name="imagen" value = "<?php echo $receta ['imagen'] ; ?>" required>
                 </div>
                
+                -->
                 
               
                 <button type="submit">Iniciar</button>

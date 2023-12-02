@@ -27,7 +27,7 @@
     ?>
         <nav>
             <ul>
-                <li><a href="#">Inicio</a></li>
+                <li><a href="index.php">Inicio</a></li>
                 <li><a href="recetas.php">Recetas</a></li>
                 <li><a href="iniciar_sesion.html">Iniciar Sesión / Registrarse</a></li>
                 <li><a href="MiPerfil.php">Mi Perfil</a></li>
